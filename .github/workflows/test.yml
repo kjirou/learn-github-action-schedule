@@ -1,0 +1,14 @@
+on:
+  schedule:
+    - cron: '35 * * * *'
+    - cron: '40 * * * *'
+
+jobs:
+  test_schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Not on 40 min
+        if: github.event.schedule != '40 * * * *'
+        run: echo "This step will be skipped on 40 min"
+      - name: Every time
+        run: echo "This step will always run"
