@@ -1,7 +1,24 @@
 on:
+  # 公式
+  # https://docs.github.com/ja/actions/using-workflows/events-that-trigger-workflows#schedule
+  #
+  # cron サンプル
+  # https://gotohayato.com/content/514/
+  #
+  # タイムゾーンは UST
   schedule:
-    - cron: '35 * * * *'
-    - cron: '40 * * * *'
+    # 毎日 00:00
+    - cron: '0 0 * * *'
+    # 毎日 12:34
+    - cron: '34 12 * * *'
+    # 毎週日曜日 23:59
+    - cron: '59 23 * * 0'
+    # 毎週月曜日 15:00
+    - cron: '0 15 * * 1'
+    # 毎時 35 分
+    # - cron: '35 * * * *'
+    # 毎時 40 分
+    # - cron: '40 * * * *'
 
 jobs:
   test_schedule:
